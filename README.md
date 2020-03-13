@@ -96,4 +96,68 @@ nano ~/.ssh/id_rsa.pub
 
 This will open up a text editor called nano. simply select the text of the entire file using your mouse, then use the keyboard shortcut `ctrl + c`. Paste that entire result as the key and add it to your account.
 
+## Getting the Repository
+
+Once you have addeed the ssh key to your account, you will be able to download the repository onto your local machine. This can be done by first, going into the directory that you wish for the project to exis, then running the following command:
+
+```
+git clone https://github.com/KSUAGVT/iarrc_2020.git
+```
+
+This will download the repository onto your computer in a folder named iarrc_2020 in the directory you are currently in. 
+
+## Installing Required Software
+
+As of now, the following software packages need to be installed:
+
+1. Pip3
+2. OpenCV
+3. numpy
+4. matplotlib
+
+They can be instlled from the following commands:
+
+### Pip3
+
+```
+sudo apt update
+sudo apt install python3-pip
+```
+
+### OpenCV
+
+```
+sudo apt update
+sudo apt install python3-opencv
+```
+
+### numpy
+
+```
+python3 -m pip install numpy
+```
+
+### matplotlib
+
+```
+python3 -m pip install matplotlib
+```
+
+This set of software should be all you need to run code. Any GUI's that are created as a result of the code, however, need extra software on the windows machine in order to handle them
+
+## Installing an X-Server
+
+[X-Ming](https://sourceforge.net/projects/xming/) Is software that allows ubuntu GUI to be sent from the kernel to display on the windows machine's monitor. X-Ming is generally regarded by the community as the best option for this type of work.
+
+Once installed, you need to have it running in the background while you do any development in your linux kernel in order to view guis created by the kernel. 
+
+Make sure to accept the request for X-Ming to have access to the local network traffic, as that is how it communicates in the backend with the linux kernel.
+
+Once that is running, simply run the following command:
+
+```
+echo export DISPLAY=:0 >> ~/.bashrc
+. ~/.bashrc
+```
+
 
