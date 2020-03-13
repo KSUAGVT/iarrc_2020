@@ -40,7 +40,7 @@ First, download the Ubuntu software package from the microsoft store [here](http
 
 Once that is installed, open WindowsPowershell as administrator and run the following command:
 
-```
+```PowerShell
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```
 
@@ -72,7 +72,7 @@ It is highly recommended you utilize a GitHub ssh key for interfacing with the r
 
 This can be done using the following commands:
 
-```
+```bash
 ssh-keygen -t rsa -b 4086 -C "<your_emal_here@domain.com>"
 ```
 
@@ -84,7 +84,7 @@ It will then ask you for a password for the sshkey. While you can use a password
 
 Once you've done that, add the generated ssh-key to the list of keys on your system with the following command:
 
-```
+```bash
 eval $(ssh-agent -s)
 ssh-add ~/.ssh/id_rsa
 ```
@@ -93,7 +93,7 @@ Finally, you need to add this key to the list of registered keys on your github 
 
 To get the key, it is recommended that you open the file the key is stored in with a text editor (nano will be the example here) and copy it so that you can paste it into the dialog box.
 
-```
+```bash
 nano ~/.ssh/id_rsa.pub
 ```
 
@@ -103,7 +103,7 @@ This will open up a text editor called nano. simply select the text of the entir
 
 Once you have addeed the ssh key to your account, you will be able to download the repository onto your local machine. This can be done by first, going into the directory that you wish for the project to exis, then running the following command:
 
-```
+```bash
 git clone https://github.com/KSUAGVT/iarrc_2020.git
 ```
 
@@ -117,36 +117,64 @@ As of now, the following software packages need to be installed:
 2. OpenCV
 3. numpy
 4. matplotlib
+5. TKinter
 
 They can be instlled from the following commands:
 
 ### Pip3
 
-```
+```bash
 sudo apt update
 sudo apt install python3-pip
 ```
 
 ### OpenCV
 
-```
+```bash
 sudo apt update
 sudo apt install python3-opencv
 ```
 
 ### numpy
 
-```
+```bash
 python3 -m pip install numpy
 ```
 
 ### matplotlib
 
-```
+```bash
 python3 -m pip install matplotlib
 ```
 
-This set of software should be all you need to run code. Any GUI's that are created as a result of the code, however, need extra software on the windows machine in order to handle them
+### TKinter
+
+```bash
+sudo apt update
+sudo apt install python3-tk
+```
+
+This set of software should be all you need to run code. Any GUI's that are created as a result of the code, however, need extra software on the windows machine in order to handle them.
+
+### Software Usage notes
+
+opencv natively supports using the X-server backend (which you will setup in a moment) to display images. Matplotlib, however, needs to be initialized to use a gui-format that supports x-server. To do this, normally when you include matplotlib:
+
+```python
+...
+import matplotlib.pyplot as plt
+...
+```
+
+Import it like this instead:
+
+```python
+...
+import matplotlib
+matplotlib.use('tkagg')
+import matplotlib.pyplot as plt
+...
+```
 
 ## Installing an X-Server
 
@@ -158,9 +186,7 @@ Make sure to accept the request for X-Ming to have access to the local network t
 
 Once that is running, simply run the following command:
 
-```
+```bash
 echo "export DISPLAY=:0" >> ~/.bashrc
 . ~/.bashrc
 ```
-
-
