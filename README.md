@@ -85,6 +85,7 @@ It will then ask you for a password for the sshkey. While you can use a password
 Once you've done that, add the generated ssh-key to the list of keys on your system with the following command:
 
 ```
+eval $(ssh-agent -s)
 ssh-add ~/.ssh/id_rsa
 ```
 
