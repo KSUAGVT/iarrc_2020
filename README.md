@@ -158,7 +158,7 @@ Make sure to accept the request for X-Ming to have access to the local network t
 Once that is running, simply run the following command:
 
 ```
-echo export DISPLAY=:0 >> ~/.bashrc
+echo "export DISPLAY=:0" >> ~/.bashrc
 . ~/.bashrc
 ```
 
