@@ -64,6 +64,8 @@ If all else fails, a virtual machine, while slow, will allow you to develop in U
 
 There is a plethora of doccumentation of how to setup an "Ubuntu 18.04 Virtual Machine", and any resource you find should do the trick.
 
+# The rest of the readme is to be done in the format of ubuntu you chose
+
 ## Setting up GitHub SSH Key
 
 It is highly recommended you utilize a GitHub ssh key for interfacing with the repository. It prevents you from having to type your username and password any time you wish to make a change, primarily.
